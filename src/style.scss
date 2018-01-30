@@ -1,0 +1,98 @@
+@import './css/normalize.scss';
+@import './css/common.scss';
+@import './css/flex.scss';
+
+$mainColor: #FF69B4;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 625%;
+  min-height: 100%;
+}
+
+body {
+  background-color: #f7f7f7;
+  color: #333;
+  font-family: "Microsoft Yahei",sans-serif;
+  font-size: .16rem;
+  min-height: 100vh;
+}
+
+ul, li {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 560%;
+  }
+}
+
+
+.swiper-slide-shadow-left, .swiper-slide-shadow-right {
+  border-radius: 7px;
+}
+
+.sliderContainer {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  .swiper-slide {
+    border-radius: 7px;
+    width: 76%;
+  }
+  img {
+    border-radius: 7px;
+    display: block;
+    width: 100%;
+    min-height: 1.2rem;
+  }
+}
+.sliderContainer:after {
+  content: '';
+  display: block;
+  width: 120vw;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: $mainColor;
+  position: absolute;
+  top: -1rem;
+  left: -10vw;
+}
+
+.bottomMenu {
+  background-color: $mainColor;
+  border-radius: 100%;
+  height: 3.2rem;
+  width: 100vw;
+  position: fixed;
+  bottom: -2.4rem;
+  left: 0;
+  .bottomMenu_footer {
+    background-color: $mainColor;
+    position: fixed;
+    width: 100vw;
+    height: .4rem;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+
+
+
+
+

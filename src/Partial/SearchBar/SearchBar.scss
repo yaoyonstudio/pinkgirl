@@ -1,0 +1,34 @@
+$mainColor: #FF69B4;
+
+.SearchBar {
+  background-color: $mainColor;
+  color: #fff;
+  height: .65rem;
+  padding: .14rem .16rem .06rem .1rem;
+  p {
+    font-size: .15rem;
+    text-align: center;
+    width: 0.6rem;
+  }
+  span {
+    display: block;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAPCAMAAADJev/pAAAAD1BMVEVHcEz///////////////8T4DEaAAAABHRSTlMAnQFcPZ5hpwAAAEZJREFUGNN1zdEOACAEQNHg/785lCbopblnZiERrvSsETMkQWAmhSTaBeyL8kKSMH4yDdP6dLB0l9qvNN2l9iNdV+m7SOwbVu4BmdCeaLkAAAAASUVORK5CYII=') no-repeat center center;
+    background-size: contain;
+    height: .08rem;
+    margin: 0 .08rem 0 0;
+    width: .12rem;
+  }
+  label {
+    display: block;
+    flex: 1;
+    height: 100%;
+    input {
+      border: none;
+      border-radius: .04rem;
+      font-size: .13rem;
+      height: .4rem;
+      padding: 0 .1rem;
+      width: 100%;
+    }
+  }
+}

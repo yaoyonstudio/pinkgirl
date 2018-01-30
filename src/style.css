@@ -1,0 +1,313 @@
+@charset "UTF-8";
+/* normalize 开始 */
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+a {
+  background-color: transparent;
+  text-decoration: none;
+  -webkit-text-decoration-skip: objects; }
+
+a:active,
+a:hover {
+  outline-width: 0; }
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sub {
+  bottom: -0.25em; }
+
+sup {
+  top: -0.5em; }
+
+img {
+  border-style: none;
+  display: block; }
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font: inherit;
+  margin: 0; }
+
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button; }
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText; }
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em; }
+
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal; }
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto; }
+
+[type="search"] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px; }
+
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54; }
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit; }
+
+textarea {
+  resize: vertical; }
+
+/* 去除文字选中时的阴影 */
+::-moz-selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+::selection {
+  background: #b3d4fc;
+  text-shadow: none; }
+
+/* 去除input number 上下箭头 */
+input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0; }
+
+/* normalize 结束 */
+.twoLineOverflow {
+  display: block;
+  display: -webkit-box;
+  width: 100%;
+  height: 0.4rem;
+  font-size: 0.16rem;
+  line-height: 0.2rem;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.fourLineOverflow {
+  display: block;
+  display: -webkit-box;
+  width: 100%;
+  height: 0.7rem;
+  font-size: 0.12rem;
+  line-height: 0.175rem;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.textOverflow {
+  display: block;
+  width: 100%;
+  word-break: keep-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; }
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table; }
+
+.clearfix:after {
+  clear: both; }
+
+.arrow_up {
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 0 12px 12px;
+  border-style: solid;
+  border-color: transparent transparent #d33;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.arrow_down {
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 0;
+  border-style: solid;
+  border-color: #d33 transparent transparent;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.arrow_left {
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent #d33 transparent transparent;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.arrow_right {
+  display: block;
+  width: 0;
+  height: 0;
+  border-width: 10px 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #d33;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+.flex, .flex-r, .flex-c {
+  display: flex; }
+  .flex-r {
+    flex-direction: row; }
+  .flex-c {
+    flex-direction: column; }
+  .flex-s-s {
+    align-items: flex-start;
+    justify-content: flex-start; }
+  .flex-s-e {
+    align-items: flex-start;
+    justify-content: flex-end; }
+  .flex-s-c {
+    align-items: flex-start;
+    justify-content: center; }
+  .flex-s-b {
+    align-items: flex-start;
+    justify-content: space-between; }
+  .flex-s-a {
+    align-items: flex-start;
+    justify-content: space-around; }
+  .flex-e-s {
+    align-items: flex-end;
+    justify-content: flex-start; }
+  .flex-e-c {
+    align-items: flex-end;
+    justify-content: center; }
+  .flex-e-e {
+    align-items: flex-end;
+    justify-content: flex-end; }
+  .flex-e-b {
+    align-items: flex-end;
+    justify-content: space-between; }
+  .flex-e-a {
+    align-items: flex-end;
+    justify-content: space-around; }
+  .flex-c-s {
+    align-items: center;
+    justify-content: flex-start; }
+  .flex-c-c {
+    align-items: center;
+    justify-content: center; }
+  .flex-c-e {
+    align-items: center;
+    justify-content: flex-end; }
+  .flex-c-b {
+    align-items: center;
+    justify-content: space-between; }
+  .flex-c-a {
+    align-items: center;
+    justify-content: space-around; }
+  .flex-wrap {
+    flex-wrap: wrap; }
+  .flex-nowrap {
+    flex-wrap: nowrap; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-size: 625%;
+  min-height: 100%; }
+
+body {
+  background-color: #f7f7f7;
+  color: #333;
+  font-family: "Microsoft Yahei",sans-serif;
+  font-size: .16rem;
+  min-height: 100vh; }
+
+ul, li {
+  list-style: none; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500; }
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 560%; } }
+
+.swiper-slide-shadow-left, .swiper-slide-shadow-right {
+  border-radius: 7px; }
+
+.sliderContainer {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0; }
+  .sliderContainer .swiper-slide {
+    border-radius: 7px;
+    width: 76%; }
+  .sliderContainer img {
+    border-radius: 7px;
+    display: block;
+    width: 100%;
+    min-height: 1.2rem; }
+
+.sliderContainer:after {
+  content: '';
+  display: block;
+  width: 120vw;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: #FF69B4;
+  position: absolute;
+  top: -1rem;
+  left: -10vw; }
+
+.bottomMenu {
+  background-color: #FF69B4;
+  border-radius: 100%;
+  height: 3.2rem;
+  width: 100vw;
+  position: fixed;
+  bottom: -2.4rem;
+  left: 0; }
+  .bottomMenu .bottomMenu_footer {
+    background-color: #FF69B4;
+    position: fixed;
+    width: 100vw;
+    height: .4rem;
+    left: 0;
+    bottom: 0; }

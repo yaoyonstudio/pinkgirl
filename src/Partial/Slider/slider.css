@@ -1,0 +1,30 @@
+.swiper-slide-shadow-left, .swiper-slide-shadow-right {
+  border-radius: 7px; }
+
+.sliderContainer {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  padding-bottom: .1rem;
+  background-color: #fff; }
+  .sliderContainer .swiper-slide {
+    border-radius: 7px;
+    width: 76%; }
+  .sliderContainer img {
+    border-radius: 7px;
+    display: block;
+    width: 100%;
+    min-height: 1.2rem; }
+
+.sliderContainer:after {
+  content: '';
+  display: block;
+  width: 120vw;
+  height: 2rem;
+  border-radius: 100%;
+  background-color: #FF69B4;
+  position: absolute;
+  top: -1rem;
+  left: -10vw; }
