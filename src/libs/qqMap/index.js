@@ -1,5 +1,8 @@
 // import MyCircle from './MyCircle'
-/* eslint-disable no-unexpected-multiline, func-call-spacing, no-unused-vars, no-cond-assign, no-new  */
+/* eslint-disable no-unexpected-multiline, func-call-spacing, no-unused-vars, no-cond-assign, no-new, no-loop-func  */
+
+import { Ajax, TypeChecker } from '../keact'
+import { QQ_KEY } from '../../config'
 
 function textSize (fontSize, text) {
   var span = document.createElement('span')
@@ -30,7 +33,7 @@ export function cCoords (lat, lng) {
 export function loadMapScript (callback) {
   let script = document.createElement('script')
   script.type = 'text/javascript'
-  script.src = 'https://map.qq.com/api/js?v=2.exp&callback=init'
+  script.src = `https://map.qq.com/api/js?v=2.exp&key=${QQ_KEY}&callback=init`
   document.body.appendChild(script)
   if (callback) {
     callback()
@@ -41,9 +44,11 @@ export function initMap (myOptions, mapContainer) {
   // window.init = function () {
   if (window.qq) {
     let options = Object.assign({
+      zoomControl: false,
       mapTypeId: window.qq.maps.MapTypeId.ROADMAP
     }, myOptions)
     var map = new window.qq.maps.Map(document.getElementById(mapContainer), options)
+    return map
   }
   // }
 }
@@ -162,6 +167,51 @@ export function createInfo (map, latLng, html) {
   infoWin.setContent(html)
 }
 
+export function createLabel (map, latLng, html, style) {
+  var label = new window.qq.maps.Label({
+      position: latLng,
+      map: map,
+      content: html
+  })
+  var baseStyle = {
+    borderColor: '#FF69B4',
+    borderRadius: '16px',
+    color: '#FF69B4',
+    width: '72px',
+    textAlign: 'center',
+    marginLeft: '-36px',
+    marginTop: '-48px'
+  }
+  var cssStyle = {}
+  if (style) {
+    cssStyle = Object.assign(baseStyle, style)
+  } else {
+    cssStyle = baseStyle
+  }
+  label.setStyle(cssStyle)
+}
+
+export function customMarker (map, latLng, title) {
+  var marker = new window.qq.maps.Marker({
+      position: latLng,
+      map: map
+  })
+  marker.setVisible(true)
+  marker.setAnimation(window.qq.maps.MarkerAnimation.DOWN)
+  marker.setDraggable(false)
+  var anchor = new window.qq.maps.Point(16, 24),
+      size = new window.qq.maps.Size(32, 32),
+      origin = new window.qq.maps.Point(0, 0),
+      icon = new window.qq.maps.MarkerImage(
+          "/img/position.png",
+          size,
+          origin,
+          anchor
+      )
+  marker.setIcon(icon)
+  marker.setTitle(title)
+}
+
 export function CustomOverlay (myOverlay) {
   myOverlay.prototype = new window.qq.maps.Overlay()
   myOverlay.prototype.construct = function () {
@@ -239,7 +289,7 @@ export function poi (markers, map, search, latLng, radius) {
             map: map
           })
           var icon = new window.qq.maps.MarkerImage(
-            '/static/img/zb/mark' + search.type + '.png',
+            process.env.PUBLIC_URL + '/img/zb/mark' + search.type + '.png',
             new window.qq.maps.Size(68, 88),
             new window.qq.maps.Point(0, 0),
             new window.qq.maps.Point(17, 44),
@@ -276,12 +326,15 @@ export function getCurLocation (success, error) {
 }
 
 export function getPanorama (el, lat, lng) {
-  // var panoLatLng = new window.qq.maps.LatLng(39.882326, 116.326088)
   var panoLatLng = new window.qq.maps.LatLng(lat, lng)
-  var pano = new window.qq.maps.Panorama(document.getElementById(el))
   var panoService = new window.qq.maps.PanoramaService()
-  panoService.getPano (panoLatLng, 200, function (result) {
-    pano.setPano(result.svid)
+  panoService.getPano (panoLatLng, 1000, function (result) {
+    if (result && result.svid) {
+      var pano = new window.qq.maps.Panorama(document.getElementById(el))
+      setTimeout(() => {
+        pano.setPano(result.svid)
+      }, 0)
+    }
     // var x1 = result.latlng.lng;
     //   var y1 = result.latlng.lat;
     //   var x2 = 116.326088;
@@ -294,3 +347,26 @@ export function getPanorama (el, lat, lng) {
     // pano.setPov({heading : alpha/Math.PI*180, pitch : 0})
   })
 }
+
+export function trafficLayer (map) {
+  var layer = new window.qq.maps.TrafficLayer()
+  layer.setMap(map)
+  return layer
+}
+
+// (url, method, params, fn, errFn) 
+export function searchPlace (city, keyword, success, fail) {
+  if (!city || !keyword) return false
+  Ajax(`https://apis.map.qq.com/ws/place/v1/search?keyword=${keyword}&boundary=region(${city},0)&key=${QQ_KEY}`, 'GET', {}, (res) => {
+    console.log(res)
+    if (TypeChecker.isFunction(success)) {
+      success(res)
+    }
+  }, (error) => {
+    console.log('搜索地点错误')
+    if (TypeChecker.isFunction(fail)) {
+      fail(error)
+    }
+  })
+}
+

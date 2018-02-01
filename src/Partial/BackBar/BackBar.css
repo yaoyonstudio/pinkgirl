@@ -9,14 +9,20 @@
   height: .44rem;
   line-height: .44rem;
   z-index: 999;
-  width: 100%; }
+  width: 100%;
+  position: relative; }
   .BackBar .icon {
     display: block;
     height: 100%;
     width: .4rem; }
   .BackBar .backIcon {
+    display: block;
+    width: .24rem;
+    height: .24rem;
     background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAgCAMAAAAlvKiEAAAAZlBMVEVHcEyZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmwjSU7AAAAIXRSTlMA8ttCBA1K6/vhMSc49ljnGtEVy6yiwCF7cJOLuCNNYmEvNL5kAAAAr0lEQVQoz5XS2Q6DIBBAUQRccF/Qutv5/5+sTNtkBk2a8ngSyB1ACL5Cm5jIs7oBAMMtM6dBxSyPnSU7tahwFihqzwT3ptRGRyA3QnpG61pqFm0NafKA1ms/GWC5JsN0k1z+Si4xOWbJIr4kf9FkHPf39pyrCpwW3nWnFWYeXB8SdeTadqiz5m+4olquukcdQn7EgtrUXCe4G6P8Z4ybmxVik9dv8xnD+2DnGH0g1QvMehaf+4RsQwAAAABJRU5ErkJggg==) no-repeat center center;
-    background-size: .12rem; }
+    background-size: .12rem;
+    position: absolute;
+    left: .04rem; }
   .BackBar .navIcon {
     height: 100%;
     width: .4rem; }

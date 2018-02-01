@@ -92,7 +92,248 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
+.Home {
+  .featured {
+    background-color: #fff;
+    padding: .1rem 1% .2rem 1%;
+    ul {
+      li {
+        flex-basis: 24.5%;
+        margin: .1rem 0;
+        text-align: center;
+        a {
+          display: block;
+        }
+        img {
+          margin: 0 auto;
+          width: 60%;
+        }
+        span {
+          color: #666;
+          display: block;
+          font-size: .14rem;
+          margin-top: .04rem;
+        }
+      }
+    }
+  }
+}
 
 
 
+.Map {
+  .mapContainer, .HouseView_content {
+    width: 100vw;
+    height: calc(100vh - .44rem);
+  }
+  .HouseView_content {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 99;
+  }
+  .MapZb {
+    position: absolute;
+    top: .6rem;
+    right: .14rem;
+    background-color: $mainColor;
+    padding: .08rem;
+    border-radius: .04rem;
+    transition: all 1s;
+    ul {
+      li {
+        color: #fff;
+        font-size: .12rem;
+        padding: .05rem 0;
+        img {
+          height: .16rem;
+          margin-right: .05rem;
+          filter: brightness(300%);
+        }
+      }
+    }
+  }
+  .MapNav {
+    background-color: $mainColor;
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    position: fixed;
+    width: 100vw;
+    height: .44rem;
+    z-index: 9999;
+    ul {
+      height: 100%;
+      width: 100%;
+      li {
+        flex: 1;
+        font-size: .12rem;
+        height: 100%;
+        text-align: center;
+        padding: 0 .08rem;
+        a{
+          display: block;
+          color: #fff;
+        } 
+        span {
+          border: 1px solid #fff;
+          border-radius: .04rem;
+          height: .32rem;
+          display: block;
+          line-height: .3rem;
+          margin-top: .06rem;
+        }
+      }
+      .active {
+        background-color: #c72777 !important;
+      }
+    }
+  }
+}
 
+.routesPlan {
+  position: fixed;
+  top: .44rem;
+  width: 100vw;
+  height: .82rem;
+  left: 0;
+  background-color: #fff;
+  font-size: .14rem;
+  box-shadow: 1px 1px 8px #ddd;
+  nav {
+    text-align: center;
+    margin: .1rem 0;
+    ul {
+      width: 80%;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-radius: .04rem;
+      li {
+        font-size: .14rem;
+        line-height: .3rem;
+        &:not(:last-child) {
+          border-right: 1px solid #ddd;
+        }
+        &:first-child {
+          border-top-left-radius: .04rem;
+          border-bottom-left-radius: .04rem;
+        }
+        &:last-child {
+          border-top-right-radius: .04rem;
+          border-bottom-right-radius: .04rem;
+        }
+      }
+      .active {
+        background-color: #c72777 !important;
+      }
+    }
+  }
+  form {
+    margin: 0 auto;
+    margin-bottom: .1rem;
+    width: 90%;
+    label {
+      &:first-child {
+        margin-right: .1rem;
+      }
+      input[type=text] {
+        border: 0;
+        border-bottom: 1px solid #ddd;
+        color: #666;
+        flex: 1;
+        font-size: .14rem;
+        width: 100%;
+        padding: 0 .04rem;
+      }
+      span {
+        margin-right: .06rem;
+      }
+    }
+  }
+}
+
+.moreLessBar {
+  width: 100%;
+  height: .24rem;
+  padding-top: .06rem;
+  img {
+    height: .18rem;
+    margin: 0 auto;
+  }
+  .less {
+    transform: rotate(-90deg);
+  }
+  .more {
+    transform: rotate(90deg);
+  }
+}
+
+.routesPath {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 1.5rem;
+  z-index: 999;
+  background-color: #f7f7f7;
+  box-shadow: 1px 1px 8px #666; 
+  .route {
+    padding: .2rem .1rem;
+    li {
+      border: 1px solid #ddd;
+      border-radius: .06rem;
+      flex: 1;
+      text-align: center;
+      max-width: 1rem;
+      padding: .04rem 0;
+      h4 {
+        color: #333;
+        font-size: .14rem;
+      }
+      p {
+        color: #999;
+        font-size: .12rem;
+      }
+    }
+    .active {
+      background-color: $mainColor !important;
+      h4, p {
+        color: #fff;
+      }
+    }
+  }
+  .steps {
+    margin-top: .2rem;
+    li {
+      padding: .06rem .1rem .06rem .4rem;
+      font-size: .12rem;
+      position: relative;
+      h4 {
+        color: #333;
+        font-size: .14rem;
+      }
+      p {
+        color: #999;
+      }
+      span {
+        position: absolute;
+        left: .16rem;
+        color: $mainColor;
+        font-size: .16rem;
+      }
+      &:before {
+        content: '';
+        color: $mainColor;
+        display: block;
+        height: 100%;
+        position: absolute;
+        left: 0.2rem;
+        border-left: 2px solid $mainColor;
+      }
+    }
+  }
+}
+
+.fullHeight {
+  height: 100vh;
+}

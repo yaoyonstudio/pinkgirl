@@ -52,7 +52,7 @@ const Test = props => (
   <div>
     <h1>Test</h1>
     <p>Count: {props.count}</p>
-    <p>{props.myLocation.city}</p>
+    <p>{props.location.city}</p>
     <p>
       <button onClick={props.increment} disabled={props.isIncrementing}>Increment</button>
       <button onClick={props.incrementAsync} disabled={props.isIncrementing}>Increment Async</button>
@@ -68,7 +68,7 @@ const Test = props => (
 )
 
 const mapStateToProps = state => ({
-  myLocation: state.common.myLocation,
+  location: state.common.location,
   count: state.common.count,
   isIncrementing: state.common.isIncrementing,
   isDecrementing: state.counter.isDecrementing

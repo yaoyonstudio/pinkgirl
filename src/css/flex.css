@@ -53,3 +53,6 @@
     flex-wrap: wrap; }
   .flex-nowrap {
     flex-wrap: nowrap; }
+
+.flexItem {
+  flex: 1; }

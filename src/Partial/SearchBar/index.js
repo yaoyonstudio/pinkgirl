@@ -1,17 +1,26 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import { getLocation } from '../../actions/common'
+
 import './SearchBar.css'
 
+const mapStateToProps = state => ({
+  myLocation: state.common.myLocation
+})
+
+const mapDispatchToProps = dispatch => bindActionCreators({
+  getLocation
+}, dispatch)
+
 class SearchBar extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      city: '东莞'
-    }
+  componentDidMount () {
+    this.props.getLocation()
   }
   render() {
     return (
       <div className="flex-r flex-c-b SearchBar">
-        <p>{this.state.city}</p>
+        <p>{this.props.myLocation.city}</p>
         <span></span>
         <label>
           <input type="text" placeholder="请输入搜索关键词" />
@@ -21,4 +30,6 @@ class SearchBar extends Component {
   }
 } 
 
-export default SearchBar
+// export default SearchBar
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
