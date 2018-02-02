@@ -370,3 +370,24 @@ export function searchPlace (city, keyword, success, fail) {
   })
 }
 
+// 解压路线坐标图，生成路线坐标
+export function unzipCoords (path) {
+  let coords = []
+  for (var i = 2; i < path.length; i++) {
+    path[i] = path[i-2] + path[i]/1000000
+  }
+  for (let i = 0; i < path.length; i+=2) {
+    coords.push(new window.qq.maps.LatLng(path[i], path[i+1]))
+  }
+  return coords
+}
+
+// 画线
+export function Polyline (map, coords, color) {
+  var polygon = new window.qq.maps.Polyline({
+    map: map,
+    path: coords,
+    strokeColor: color || new window.qq.maps.Color(255, 105, 180, 0.8),
+    strokeWeight: 5
+  })
+}

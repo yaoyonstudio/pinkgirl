@@ -126,6 +126,11 @@ h1, h2, h3, h4, h5, h6 {
     width: 100vw;
     height: calc(100vh - .44rem);
   }
+  .RouteMap {
+    height: calc(100vh - .82rem);
+    top: .82rem;
+    left: 0;
+  }
   .HouseView_content {
     position: fixed !important;
     top: 0;
@@ -191,9 +196,11 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+
+
 .routesPlan {
   position: fixed;
-  top: .44rem;
+  top: 0;
   width: 100vw;
   height: .82rem;
   left: 0;
@@ -204,7 +211,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin: .1rem 0;
     ul {
-      width: 80%;
+      width: 70%;
       margin: 0 auto;
       border: 1px solid #ddd;
       border-radius: .04rem;
@@ -279,6 +286,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 1px 1px 8px #666; 
   .route {
     padding: .2rem .1rem;
+    width: 100%;
     li {
       border: 1px solid #ddd;
       border-radius: .06rem;
@@ -304,6 +312,10 @@ h1, h2, h3, h4, h5, h6 {
   }
   .steps {
     margin-top: .2rem;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: .2rem;
     li {
       padding: .06rem .1rem .06rem .4rem;
       font-size: .12rem;

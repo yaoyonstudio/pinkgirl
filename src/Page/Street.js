@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import BackBar from '../Partial/BackBar/index'
-import { cCoords, customMarker, createInfo, createLabel, poi, clearOverlays, loadMapScript, initMap, getPanorama } from '../libs/qqMap'
+import { loadMapScript, getPanorama } from '../libs/qqMap'
 
 class Street extends Component {
   constructor (props) {

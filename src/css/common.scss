@@ -92,3 +92,30 @@
   top: 0;
   left: 0;
 }
+
+.Toast {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999;
+  section {
+    @include flex(column, center, center);
+    border-radius: .05rem;
+    width: 78%;
+    position: fixed;
+    left: 11%;
+    text-align: center;
+    top: 50%;
+    p {
+      background-color: rgba(0, 0, 0, .7);
+      border-radius: .04rem;
+      color: #fff;
+      font-size: .14rem;
+      line-height: .2rem;
+      padding: .06rem .1rem;
+      text-align: center;
+    }
+  }
+}

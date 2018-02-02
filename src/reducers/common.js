@@ -28,12 +28,6 @@ export default (state = initialState, action) => {
         isIncrementing: true
       }
 
-    case INCREMENT_REQUESTED:
-      return {
-        ...state,
-        isIncrementing: true
-      }
-
     case INCREMENT:
       return {
         ...state,

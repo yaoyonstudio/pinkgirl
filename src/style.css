@@ -185,6 +185,34 @@ input[type="number"]::-webkit-outer-spin-button, input[type="number"]::-webkit-i
   top: 0;
   left: 0; }
 
+.Toast {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 999999; }
+  .Toast section {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    border-radius: .05rem;
+    width: 78%;
+    position: fixed;
+    left: 11%;
+    text-align: center;
+    top: 50%; }
+    .Toast section p {
+      background-color: rgba(0, 0, 0, 0.7);
+      border-radius: .04rem;
+      color: #fff;
+      font-size: .14rem;
+      line-height: .2rem;
+      padding: .06rem .1rem;
+      text-align: center; }
+
 .flex, .flex-r, .flex-c {
   display: flex; }
   .flex-r {
@@ -337,6 +365,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 100vw;
   height: calc(100vh - .44rem); }
 
+.Map .RouteMap {
+  height: calc(100vh - .82rem);
+  top: .82rem;
+  left: 0; }
+
 .Map .HouseView_content {
   position: fixed !important;
   top: 0;
@@ -393,7 +426,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .routesPlan {
   position: fixed;
-  top: .44rem;
+  top: 0;
   width: 100vw;
   height: .82rem;
   left: 0;
@@ -404,7 +437,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin: .1rem 0; }
     .routesPlan nav ul {
-      width: 80%;
+      width: 70%;
       margin: 0 auto;
       border: 1px solid #ddd;
       border-radius: .04rem; }
@@ -460,7 +493,8 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #f7f7f7;
   box-shadow: 1px 1px 8px #666; }
   .routesPath .route {
-    padding: .2rem .1rem; }
+    padding: .2rem .1rem;
+    width: 100%; }
     .routesPath .route li {
       border: 1px solid #ddd;
       border-radius: .06rem;
@@ -479,7 +513,11 @@ h1, h2, h3, h4, h5, h6 {
       .routesPath .route .active h4, .routesPath .route .active p {
         color: #fff; }
   .routesPath .steps {
-    margin-top: .2rem; }
+    margin-top: .2rem;
+    width: 100%;
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: .2rem; }
     .routesPath .steps li {
       padding: .06rem .1rem .06rem .4rem;
       font-size: .12rem;

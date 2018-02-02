@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import BackBar from '../Partial/BackBar/index'
-import { cCoords, customMarker, createInfo, createLabel, poi, clearOverlays, loadMapScript, initMap, getPanorama, trafficLayer } from '../libs/qqMap'
+import { cCoords, customMarker, createLabel, poi, loadMapScript, initMap, trafficLayer } from '../libs/qqMap'
 import { Link } from 'react-router-dom'
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 let map = {}
@@ -13,7 +12,6 @@ let traffic = {}
 const mapStateToProps = state => ({
   myLocation: state.common.myLocation
 })
-
 
 class Map extends Component {
   constructor (props) {
@@ -52,6 +50,7 @@ class Map extends Component {
         } else {
           traffic.setMap(null)
         }
+        break
       default:
         break
     }
@@ -98,9 +97,8 @@ class Map extends Component {
           <ul className="flex-r flex-c-c">
             <li onClick={() => this.toggleView('zb')}><span className={this.state.showZbControl ? 'active' : ''}>周边</span></li>
             <li><Link to="/street"><span>街景</span></Link></li>
-            <li><Link to="/routes"><span>路线导航</span></Link></li>
             <li onClick={() => this.toggleView('traffic')}><span>实时路况</span></li>
-            <li><span>公交换乘</span></li>
+            <li><Link to="/routes"><span>路线导航</span></Link></li>
           </ul>
         </footer>
       </div>
