@@ -6,6 +6,9 @@ import Home from './Page/Home';
 import Map from './Page/Map';
 import Street from './Page/Street';
 import Routes from './Page/Routes';
+
+import Weather from './Page/Tools/Weather';
+
 import Test from './Page/Test';
 
 class Routers extends Component {
@@ -23,6 +26,7 @@ class Routers extends Component {
               <Route exact path="/map" component={Map}/>
               <Route exact path="/street" component={Street}/>
               <Route exact path="/routes" component={Routes}/>
+              <Route exact path="/tools/weather" component={Weather}/>
               <Route exact path="/test" component={Test}/>
             </Switch>
 					</div>
