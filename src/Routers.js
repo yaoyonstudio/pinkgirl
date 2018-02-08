@@ -20,16 +20,14 @@ class Routers extends Component {
     return (
       <Router>
 				<div className="container">
-					<div className="page">
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/map" component={Map}/>
-              <Route exact path="/street" component={Street}/>
-              <Route exact path="/routes" component={Routes}/>
-              <Route exact path="/tools/weather" component={Weather}/>
-              <Route exact path="/test" component={Test}/>
-            </Switch>
-					</div>
+          <Switch>
+            <Route exact path="/" component={Home}/>
+            <Route exact path="/map" component={Map}/>
+            <Route exact path="/street" component={Street}/>
+            <Route exact path="/routes" component={Routes}/>
+            <Route exact path="/tools/weather" component={Weather}/>
+            <Route exact path="/test" component={Test}/>
+          </Switch>
 				</div>
 			</Router>
     );

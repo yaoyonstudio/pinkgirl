@@ -39,6 +39,17 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+#root, .container {
+  width: 100vw;
+  overflow-x: hidden;
+  height: 100%;
+  min-height: 100vh;
+}
+
+.main {
+  min-height: 100vh;
+  padding-top: .44rem;
+}
 
 .swiper-slide-shadow-left, .swiper-slide-shadow-right {
   border-radius: 7px;
@@ -348,4 +359,98 @@ h1, h2, h3, h4, h5, h6 {
 
 .fullHeight {
   height: 100vh;
+}
+
+
+
+
+.Weather {
+  background: url('./img/3.jpg') no-repeat center center;
+  background-size: cover;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Microsoft YaHei';
+  overflow: hidden;
+  padding-top: .44rem;
+  .Weather_header {
+    color: #fff;
+    margin: 12px 0;
+    text-align: center;
+    h3 {
+      font-size: .18rem;
+      font-weight: 500;
+    }
+    p {
+      font-size: .15rem;
+      margin-top: .05rem;
+    }
+  }
+
+  .Weather_main {
+    background-color: rgba(0, 0, 0, .5);
+    margin: 0 auto;
+    width: 86%;
+    border-radius: 6px;
+    padding: .1rem .2rem;
+    img {
+      filter: brightness(4);
+    }
+    aside {
+      flex: 1;
+      text-align: center;
+      p {
+        color: #fff;
+        font-size: .36rem;
+        span {
+          color: #3c5f81;
+          font-size: .14rem;
+          margin-right: .1rem;
+        }
+      }
+    }
+  }
+
+  .Weather_info {
+    background-color: rgba(0, 0, 0, .5);
+    color: #fff;
+    flex: 1;
+    width: 100%;
+    margin-top: .36rem;
+    padding: .2rem;
+    .detail {
+      margin: .36rem 0;
+      li {
+        height: .6rem;
+        width: 50%;
+        text-align: center;
+        p {
+          line-height: .24rem;
+        }
+      }
+    }
+    .forecast {
+      ul {
+        li {
+          background-color: rgba(255, 255, 255, .8);
+          border: 1px solid rgba(255, 255, 255, .8);
+          border-radius: .06rem;
+          color: #3c5f81;
+          padding: .2rem .1rem;
+          img {
+            max-width: 100%;
+          }
+          h4 {
+            font-size: .16rem;
+            font-weight: 500;
+          }
+          p {
+            font-size: .14rem;
+          }
+        }
+        li:not(:last-child) {
+          margin-right: .1rem;
+        }
+      }
+    }
+  }
 }

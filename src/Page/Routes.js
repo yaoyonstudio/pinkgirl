@@ -31,6 +31,7 @@ class Routes extends Component {
     super(props)
     this.state = {
       routes: [],
+      currentSelect: '',
       currentRoute: {},
       method: 0,
       myPos: {
@@ -126,11 +127,37 @@ class Routes extends Component {
 
   }
   setLocation (type) {
-    if (type === 'start') {
-      window.location.href = `https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=${URL}/routes?type=start&key=${QQ_KEY}&referer=myapp`
-    } else if (type === 'end') {
-      window.location.href = `https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=${URL}/routes?type=end&key=${QQ_KEY}&referer=myapp`
-    }
+    // if (type === 'start') {
+      // window.location.href = `https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=${URL}/routes?type=start&key=${QQ_KEY}&referer=myapp`
+
+      // console.log(window.document.body)
+
+    this.setState({
+      currentSelect: 'start'
+    }, () => {
+
+    })
+
+    var iframe = document.createElement('iframe')
+    iframe.setAttribute('id', 'mapPage')
+    iframe.setAttribute('width', '100%')
+    iframe.setAttribute('height', '100%')
+    iframe.setAttribute('frameborder', '0')
+    iframe.setAttribute('style', 'position: fixed; top: 0; left: 0;')
+    iframe.setAttribute('src', `http://apis.map.qq.com/tools/locpicker?search=1&type=1&key=${QQ_KEY}&referer=myapp`)
+
+    // } else if (type === 'end') {
+    //   window.location.href = `https://apis.map.qq.com/tools/locpicker?search=1&type=0&backurl=${URL}/routes?type=end&key=${QQ_KEY}&referer=myapp`
+    // }
+
+    this.setState({
+      currentSelect: type
+    }, () => {
+      window.document.body.appendChild(iframe)
+    })
+
+
+
   }
 
   drawDriving (path) {
@@ -250,6 +277,50 @@ class Routes extends Component {
     }
     console.log('startPos:', this.state.startPos)
     console.log('endPos:', this.state.endPos)
+
+
+    window.addEventListener('message', function(event) {
+        // 接收位置信息，用户选择确认位置点后选点组件会触发该事件，回传用户的位置信息
+        var loc = event.data;
+        if (loc && loc.module == 'locationPicker') {//防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
+          console.log('location', loc);
+          if (that.state.currentSelect === 'start') {
+            console.log('开始位置')
+            that.setState({
+              startPos: {
+                name: loc.poiname,
+                latlng: loc.latlng.lat + ',' + loc.latlng.lng,
+                addr: loc.poiaddress,
+                city: loc.cityname,
+                latlngObj: loc.latlng
+              }
+            }, () => {
+              localStorage.setItem('startPos', JSON.stringify(that.state.startPos))
+            })
+          } else {
+            console.log('目的位置')
+            that.setState({
+              endPos: {
+                name: loc.poiname,
+                latlng: loc.latlng.lat + ',' + loc.latlng.lng,
+                addr: loc.poiaddress,
+                city: loc.cityname,
+                latlngObj: loc.latlng
+              }
+            }, () => {
+              localStorage.setItem('endPos', JSON.stringify(that.state.endPos))
+            })
+          }
+          document.querySelector('#mapPage').remove()
+        }                                
+    }, false); 
+
+
+
+
+
+
+
   }
   render() {
     return (

@@ -27,7 +27,7 @@ class Home extends Component {
         {id: 4, src: process.env.PUBLIC_URL + '/img/icon/i4.png', title: '查房价', url: 'test'},
         {id: 5, src: process.env.PUBLIC_URL + '/img/icon/i5.png', title: '别墅', url: 'test'},
         {id: 6, src: process.env.PUBLIC_URL + '/img/icon/i6.png', title: '住宅', url: 'test'},
-        {id: 7, src: process.env.PUBLIC_URL + '/img/icon/i7.png', title: '商铺写字楼', url: 'test'}
+        {id: 7, src: process.env.PUBLIC_URL + '/img/icon/i7.png', title: '商铺写字楼', url: '/tools/weather'}
       ],
       list: [
         {id: 1, img: process.env.PUBLIC_URL + '/img/houseItem1.jpg', title: '东城中天万科驿中天创客谷', zone: '中心城区-东城', areas: '197-277', price: '11000', styles: ['洋房', '公寓', '别墅', '商铺', '写字楼'], status: 3},

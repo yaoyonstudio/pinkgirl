@@ -17,10 +17,17 @@ class BackBar extends Component {
     return false
   }
   render() {
+    const BgColor = {
+      'backgroundColor': this.props.bgcolor
+    }
+    const Color = {
+      'color': this.props.color
+    }
     return (
-      <div className="flex-r flex-c-s BackBar borderBottom">
+      <div className={this.props.noborder ? 'flex-r flex-c-s BackBar' : 'flex-r flex-c-s BackBar borderBottom'} style={this.props.bgcolor ? BgColor : {}}>
         <div className="backIcon" onClick={(e) => this.goBack(e)}></div>
-        <h3>{this.props.title}</h3>
+        <h3 style={this.props.color ? Color : {}}>{this.props.title}</h3>
+        {this.props.children}
       </div>
     );
   }
