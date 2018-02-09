@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getCurLocation } from '../../libs/qqMap'
 import { toolServices } from '../../Services'
 
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import BackBar from '../../Partial/BackBar'

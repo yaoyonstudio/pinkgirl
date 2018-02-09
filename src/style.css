@@ -595,8 +595,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     flex: 1;
     width: 100%;
-    margin-top: .36rem;
-    padding: .2rem; }
+    margin-top: .16rem;
+    padding: 0 .2rem; }
     .Weather .Weather_info .detail {
       margin: .36rem 0; }
       .Weather .Weather_info .detail li {

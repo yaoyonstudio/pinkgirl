@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+// import '../../../node_modules/swiper/dist/css/swiper.css';
 import './slider.css'
+import Swiper from 'swiper'
 
 /* eslint-disable no-undef, no-unused-vars */
 

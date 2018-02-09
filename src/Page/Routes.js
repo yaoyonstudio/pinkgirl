@@ -1,11 +1,11 @@
+/* eslint-disable array-callback-return */
 import React, { Component } from 'react';
-import BackBar from '../Partial/BackBar/index'
 import  $ from  'jquery'
 
 import { cCoords, unzipCoords, Polyline, customMarker, createInfo, createLabel, loadMapScript, initMap } from '../libs/qqMap'
 
-import { Ajax, ShowToast } from '../libs/keact'
-import { QQ_KEY, URL } from '../config'
+import {ShowToast } from '../libs/keact'
+import { QQ_KEY } from '../config'
 import { connect } from 'react-redux'
 
 function getQueryString (name) {
@@ -282,7 +282,7 @@ class Routes extends Component {
     window.addEventListener('message', function(event) {
         // 接收位置信息，用户选择确认位置点后选点组件会触发该事件，回传用户的位置信息
         var loc = event.data;
-        if (loc && loc.module == 'locationPicker') {//防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
+        if (loc && loc.module === 'locationPicker') {//防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
           console.log('location', loc);
           if (that.state.currentSelect === 'start') {
             console.log('开始位置')
@@ -354,13 +354,40 @@ class Routes extends Component {
           </ul>
           {this.state.currentRoute.steps && <ul className="steps">
             {this.state.currentRoute.steps.map((step, index) => {
-              return (
-                <li key={index}>
-                  <span>●</span>
-                  <h4>{step.road_name}</h4>
-                  <p>{step.instruction}</p>
-                </li>
-              )
+              if (this.state.method === 1 || this.state.method === 2) {
+                return (
+                  <li key={index}>
+                    <span>●</span>
+                    <h4>{step.road_name}</h4>
+                    <p>{step.instruction}</p>
+                  </li>
+                )
+              } else if (this.state.method === 3) {
+                let busLines = ''
+                if (step.mode === 'TRANSIT') {
+                  if (step.lines && step.lines.length) {
+                    step.lines.map((line, i) => {
+                      busLines += '乘坐' + line.title + '路车，途经' + line.station_count + '站' + (i < step.lines.length - 1 ? '或' : '')
+                    })
+                  }
+                }
+
+                return (
+                  <li key={index}>
+                    <span>●</span>
+                    <h4>{(step.mode === 'WALKING') ? '步行 ' : (step.mode === 'TRANSIT' ? '公交' : '') }</h4>
+                    {step.mode === 'WALKING' && <p>向{step.direction}行走{step.distance}米(约{step.duration}分钟)</p>}
+                    {busLines}
+                    {/* {step.mode === 'TRANSIT' && <p>乘坐
+                    {step.lines.map((line, i) => {
+                      return (
+                        {line.title}路车到{line.stations[line.stations.length - 1].title}，共{line.stations.length}站，约{line.duration}分钟
+                      )
+                    }}
+                    </p>} */}
+                  </li>
+                )
+              }
             })}
           </ul>}
         </footer> : ''}
